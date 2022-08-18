@@ -13,7 +13,7 @@ You will link the Todo list to a RESTful API that we have already built. So you 
 - Send a GET request to the URL with Postman and check this
 - Write a piece of code to send the same GET request and console.log the result so that you also see the empty array there (think of async/await!).
 - To get the first item in your endpoint you can send a POST request to the URL, do this first with Postman and then also from JavaScript. Send as the body a JavaScript object with a description and a "done" key that is set to "false". See this example:
-***
+```javascript
 const data = {description: "buy oatmeal", done: false};
 fetch(baseUrl, {
   method: "POST",
@@ -22,7 +22,7 @@ fetch(baseUrl, {
       "Content-Type": "application/json",
   },
 });
-***
+```
 Check with GET what is in the endpoint.
 You will find that the endpoint works with hashes that it generates itself from your data every time you make a request. Your data will look like this:
 {
