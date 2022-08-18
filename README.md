@@ -69,8 +69,9 @@ Also this week: styling is not important. Don't spend a lot of time styling! Foc
 
 ![](https://media.wincacademy.nl/todo-list.png)
 
-Tips
-In this project, you will add event listeners to HTML elements added by Javascript. If you want to link the event listener before the element is added, this fails. This requires a different approach! Make sure you don't assign your event listeners until last, or do this: https://stackoverflow.com/questions/34896106/attach-event-to-dynamic-elements-in-javascript
-You don't need any scripts, no authentication, and nothing extra to call the API. fetch is your friend!
-fetch can do more than just fetch data; it can also send and update data. Check this documentation on how to do that: https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch
-A method like getElementsByClassName returns an HtmlCollection. This looks like an array in your console, but it's not! You can convert this to an array and then loop over it.
+## Tips
+
+- In this project, you will add event listeners to HTML elements added by Javascript. If you want to link the event listener before the element is added, this fails. This requires a different approach! Make sure you don't assign your event listeners until last, or do this: https://stackoverflow.com/questions/34896106/attach-event-to-dynamic-elements-in-javascript
+- You don't need any scripts, no authentication, and nothing extra to call the API. fetch is your friend!
+- fetch can do more than just fetch data; it can also send and update data. Check this documentation on how to do that: https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch
+- A method like getElementsByClassName returns an HtmlCollection. This looks like an array in your console, but it's not! You can convert this to an array and then loop over it.
