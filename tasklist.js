@@ -73,11 +73,9 @@ const taskList = new XMap()
 // _id _createdOn _updatedOn are set by te API
 const insertIntoTaskList = (text) => {
   let id = Math.floor(Math.random() * 10000000)
-  let _id
-  let _createdOn
   let done = false
   let description = text
-  taskList.set(id, {id: id, description: description, done: done, _id: _id, _createdOn: _createdOn})
+  taskList.set(id, {id: id, description: description, done: done})
 }
 
 export const updateTaskInTaskList = (id, props) => {
