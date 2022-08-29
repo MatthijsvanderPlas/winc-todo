@@ -6,19 +6,22 @@ import { modal } from './modal.js'
 class XMap {
   constructor() {
     this._map = new Map()
+    // Get all, if any, task from the back-end on creating the instance of our map
     getTodoList()
       .then(res => {
        for (let i=0; i < res.data.length; i++){
         let body = res.data[i]
         this._map.set(body.id, body)
        }
-       console.log
-       render()
+      // Fire a render after getting the tasks from our back-end and adding them to our Map
+      render()
       })
   }
 
   set (key, value) {
+    // Add task to the Map
     this._map.set(key, value)
+    // Update the back-end and subsequently update the task in our Map with the id from the back-end
     addTodoTask(this._map.get(key))
       .then(res => {
         updateTaskInTaskList(key, { _id: res.data._id })
@@ -50,6 +53,7 @@ class XMap {
         task[key] = props[key]
       }
     }
+    // Updating the back end after the front-end
     updateTodoTask(task._id, this._map.get(id))
     render()
   }
@@ -94,6 +98,7 @@ export const displayEditModal = (id, description) => {
 // Render function that simply clears the list and renders all the items in our Map()
 // If there are no items in Map() a placeholder is shown
 function render() {
+  // Clear the list before rendering
   document.getElementById('todo').innerHTML = ''
   if (taskList.length()) {
     taskList.forEach(item => {
