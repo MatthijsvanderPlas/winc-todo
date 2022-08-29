@@ -106,6 +106,7 @@ function render() {
   }
 }
 
+// Listening for a task to be added
 document.getElementById('todo-btn').addEventListener('click', (e)=> {
   e.preventDefault()
   let task = document.getElementById('todo-text')
