@@ -25,14 +25,15 @@ export const addTodoTask = async (body = {}) => {
       },
     })
     const data = await res.json();
-    if (res.status === 200) return { data, res }
+    if (res.status === 201) 
+    return { data, res }
   } catch (err) {
     console.log(err)
   }
 }
 
-export const updateTodoTask = async (todoID, body) => {
-  const urlID = url +`/${totodID}`
+export const updateTodoTask = async (id, body) => {
+  const urlID = url +`/${id}`
   try {
     const res = await fetch(urlID, {
       method: 'PUT',
@@ -55,10 +56,8 @@ export const deleteTodoTask = async (todoID) => {
       method: 'DELETE',
       headers: {
         "Content-type": "application/json"
-      },
+      }
     })
-    const data = await res.json();
-    if (res.status === 200) return { data, res }
   } catch (err) {
     console.log(err)
   }

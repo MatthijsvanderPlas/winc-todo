@@ -1,0 +1,18 @@
+GET http://localhost:3000/
+Content-Type: application/json
+
+###
+
+POST http://localhost:3000/
+Content-Type: application/json
+
+{
+"id": "1",
+"description": "Test2",
+"done": false
+}
+
+###
+
+DELETE http://localhost:3000/37e397b3-d845-493e-8d94-f2a07962d482
+Content-Type: application/json

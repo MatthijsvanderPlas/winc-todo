@@ -2,20 +2,28 @@
 <html lang="en">
     <head>
         <meta charset="UTF-8" />
-        <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Todo App</title>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap"
+            rel="stylesheet"
+        />
+        <link rel="stylesheet" href="style.css" />
+        <title>Document</title>
+        <script type="module" src="tasklist.js"></script>
     </head>
     <body>
-        <header>
-            <form action="" class="input">
-                <input type="text" class="input__text" />
-                <button type="submit" class="input__submit">Add</button>
+        <div id="root">
+            <h1>Todo Task App</h1>
+            <!-- Input for new tasks -->
+            <form>
+                <input type="text" id="todo-text" placeholder="New Task..." />
+                <button type="submit" id="todo-btn">add</button>
             </form>
-        </header>
-        <main class="app">
-            <ul class="todo__list"></ul>
-        </main>
-        <script defer type="module" src="/main.js"></script>
+            <!-- Task list ul -->
+            <ul class="todo" id="todo"></ul>
+        </div>
     </body>
 </html>
