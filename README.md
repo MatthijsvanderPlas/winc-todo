@@ -7,7 +7,7 @@ You will link the Todo list to a RESTful API that we have already built. So you 
 
 ### Read this carefully.
 
-- Clone our REST API repository so that it is on your own computer.
+- Clone [our REST API repository](https://github.com/WincAcademy/local_api) so that it is on your own computer.
 - Follow the installation instructions in the README of the repository.
 - Read the documentation in the README of the repository to find out how to use this local API.
 - Send a GET request to the URL with Postman and check this

@@ -5,6 +5,7 @@
     font-family: "Poppins", sans-serif;
 
     --primary-color: #e3ad63;
+    --primary-color-hover: rgb(238, 139, 0);
 }
 
 body {
@@ -62,8 +63,14 @@ form {
 .todo-item {
     display: flex;
     justify-content: space-between;
+    align-items: center;
     width: 100%;
     padding: 0.5rem;
+    cursor: pointer;
+}
+
+.todo-item:hover {
+    background-color: rgba(0, 0, 0, 0.25);
 }
 
 .done {
@@ -73,10 +80,85 @@ form {
 
 .todo-item span {
     font-size: 1rem;
-    width: 80%;
+    width: 100%;
     border: none;
+    padding-left: 1rem;
 }
 
 .todo-item:nth-child(even) {
     background-color: rgb(230, 229, 229);
+}
+
+.todo-item:nth-child(even):hover {
+    background-color: rgba(0, 0, 0, 0.25);
+}
+
+.del-btn {
+    background: none;
+    color: var(--primary-color);
+    border: none;
+    font-size: 1.25rem;
+}
+
+.del-btn i:hover {
+    color: var(--primary-color-hover);
+    cursor: pointer;
+}
+
+.placeholder {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+.placeholder-img {
+    color: var(--primary-color);
+    padding: 2rem;
+}
+
+.placeholder-text {
+    font-size: 1.5rem;
+    text-align: center;
+}
+
+.modal-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.25);
+}
+
+.modal-form {
+    display: flex;
+    justify-content: space-between;
+    width: 90%;
+    max-width: 30rem;
+    background-color: white;
+    margin: 0 auto;
+    position: relative;
+    top: 35%;
+    border: 1px solid black;
+    border-radius: 5px;
+}
+
+.modal-text {
+    width: 100%;
+    padding-left: 0.5rem;
+    margin-right: 0.5rem;
+}
+
+.modal-btn {
+    background: none;
+    border: none;
+    color: var(--primary-color);
+    font-size: 1.25rem;
+    cursor: pointer;
+}
+
+.modal-btn:hover {
+    color: var(--primary-color-hover);
 }

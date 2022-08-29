@@ -1,5 +1,7 @@
 import { addTodoTask, deleteTodoTask, getTodoList, updateTodoTask } from "./api-client.js"
 import { taskListComponent } from "./component.js"
+import { placeholderComponent } from "./placeholderComponent.js"
+import { modal } from './modal.js'
 
 class XMap {
   constructor() {
@@ -24,10 +26,6 @@ class XMap {
     render()
   }
 
-  get (key) {
-    return this._map.get(key)
-  }
-
   delete (key) {
     const _id = this._map.get(key)._id
     deleteTodoTask(_id)
@@ -41,8 +39,12 @@ class XMap {
     }
   }
 
+  get (key) {
+    return this._map.get(key)
+  }
+
   update(id, props){
-    const task = taskList.get(id)
+    const task = this._map.get(id)
     for(let key in task){
       if(props.hasOwnProperty(key)){
         task[key] = props[key]
@@ -51,10 +53,24 @@ class XMap {
     updateTodoTask(task._id, this._map.get(id))
     render()
   }
+
+  length() {
+    return this._map.size
+  }
+
+  retrieve(key) {
+    const obj = this._map.get(key)
+    return obj
+  }
 }
 
 const taskList = new XMap()
 
+// task that get added from the input form
+// text gets pulled from the input field
+// done is set to false by default
+// id is created to be used in the XMap()
+// _id _createdOn _updatedOn are set by te API
 const insertIntoTaskList = (text) => {
   let id = Math.floor(Math.random() * 10000000)
   let _id
@@ -72,13 +88,24 @@ export const deleteTaskInTaskList = (id) => {
   taskList.delete(id)
 }
 
+export const displayEditModal = (id, description) => {
+  const comp = modal(id, description)
+  document.querySelector('body').append(comp)
+}
+
 // Render function that simply clears the list and renders all the items in our Map()
+// If there are no items in Map() a placeholder is shown
 function render() {
   document.getElementById('todo').innerHTML = ''
-  taskList.forEach(item => {
-  const comp = taskListComponent(item)
-  document.getElementById('todo').append(comp)
+  if (taskList.length()) {
+    taskList.forEach(item => {
+    const comp = taskListComponent(item)
+    document.getElementById('todo').append(comp)
   })
+} else {
+  const comp = placeholderComponent()
+  document.getElementById('todo').append(comp)  
+  }
 }
 
 document.getElementById('todo-btn').addEventListener('click', (e)=> {
@@ -87,4 +114,5 @@ document.getElementById('todo-btn').addEventListener('click', (e)=> {
   if (task.value) {
     insertIntoTaskList(task.value)
   }
+  task.value = ''
 })
