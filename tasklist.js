@@ -24,10 +24,10 @@ class XMap {
     // Update the back-end and subsequently update the task in our Map with the id from the back-end
     addTodoTask(this._map.get(key))
       .then(res => {
-        updateTaskInTaskList(key, { _id: res.data._id })
+        this._map.set(key,  res.data )
+        render()
       })
-    render()
-  }
+    }
 
   delete (key) {
     const _id = this._map.get(key)._id
@@ -46,12 +46,13 @@ class XMap {
     return this._map.get(key)
   }
 
+
   update(id, props){
     const task = this._map.get(id)
     for(let key in task){
       if(props.hasOwnProperty(key)){
         task[key] = props[key]
-      }
+      } 
     }
     // Updating the back end after the front-end
     updateTodoTask(task._id, this._map.get(id))
@@ -74,7 +75,7 @@ const taskList = new XMap()
 // text gets pulled from the input field
 // done is set to false by default
 // id is created to be used in the XMap()
-// _id _createdOn _updatedOn are set by te API
+// _id _createdOn _updatedOn are set by the API
 const insertIntoTaskList = (text) => {
   let id = Math.floor(Math.random() * 10000000)
   let done = false

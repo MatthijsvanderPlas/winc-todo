@@ -33,7 +33,7 @@ export const addTodoTask = async (body = {}) => {
 }
 
 export const updateTodoTask = async (id, body) => {
-  const urlID = url +`/${id}`
+  const urlID = `${url}/${id}`
   try {
     const res = await fetch(urlID, {
       method: 'PUT',
@@ -50,7 +50,7 @@ export const updateTodoTask = async (id, body) => {
 }
 
 export const deleteTodoTask = async (todoID) => {
-  const newURL = url + `/${todoID}`
+  const newURL = `${url}/${todoID}`
   try {
     const res = await fetch(newURL, {
       method: 'DELETE',

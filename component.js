@@ -1,6 +1,6 @@
 import { deleteTaskInTaskList, updateTaskInTaskList, displayEditModal } from "./tasklist.js"
 
-export const taskListComponent = ({id, description, _id, done}) => {
+export const taskListComponent = ({id = 0, description, _id, done}) => {
   const todoItem = document.createElement('li')
   todoItem.classList.add(`todo-item`)
   todoItem.onclick = function(e) {
